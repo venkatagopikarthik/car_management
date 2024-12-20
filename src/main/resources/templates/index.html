@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+           
+            
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .search-form {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-form input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .search-form button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .table-container {
+            margin: 20px auto;
+            width: 80%;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table {
+            margin: 0;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .table th, .table td {
+            text-align: center;
+            padding: 12px;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        .actions a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .actions a:hover {
+            background-color: #0056b3;
+        }
+        .table{
+        justify-content:center;
+        padding-left:1000px;
+        margin:200px
+        
+        }
+        h3{
+        padding-left:500px;
+        margin:100px;
+        }
+        #search{
+        padding:100px;
+        }
+        h2{
+        border:3px solid red;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0.3, 1.0); /* x-offset, y-offset, blur radius, color */
+    padding: 20px;
+    border-radius: 8px; /* Optional for rounded corners */
+    background-color: white;
+        }
+        
+    </style>
+</head>
+<body>
+<div>
+    <h2 >Spring Boot Crud System -Car Management</h2>
+    <tr>
+        <div align = "left" >           
+             <h3><a  th:href="@{'/new'}">Add new</a></h3>     
+        </div>
+    
+    </tr>
+    <div align="center">
+        <form th:action="@{/search}" method="get">
+            <input id="serach" type="text" name="name" placeholder="Search by Name " />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+    <tr>
+    
+    <div class="col-sm-5" align = "center">
+                 <div class="panel-body" align = "center" >
+                 <table class="table">
+  <thead class="thead-dark">
+    <tr>
+              <th>Car ID</th>
+            <th>Car Name</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>Color</th>
+            <th>Fuel Type</th>
+       </tr>
+  </thead>
+  <tbody>
+      <tr  th:each="car : ${listcar }">
+         <td th:text="${car.id}">Car ID</td>
+        <td th:text="${car.name}">CarName</td>
+        <td th:text="${car.model}">Model</td>
+        <td th:text="${car.year}">Year</td> 
+        <td th:text="${car.price}">Price</td>   
+        <td th:text="${car.color}">Color</td>    
+        <td th:text="${car.fuelType}">FuelType</td>        
+        <td>
+            <a th:href="@{'/edit/' + ${car.id}}">Edit</a>
+        </td>                                
+        <td>
+            <a th:href="@{'/delete/' + ${car.id}}">Delete</a>
+        </td>            
+        </tr> 
+   
+  </tbody>
+</table>
+                    
+                 </div>
+
+            </div> 
+
+    </tr>
+
+    </tbody>
+    </table>
+    <div>
+</body>
+</html>
