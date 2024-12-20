@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <style>
+    body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://media.licdn.com/dms/image/v2/D5612AQGJNqEDMd0kOA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693206641329?e=1740009600&v=beta&t=l2qFoPHuclRJjP3mQYcikeEPfwcq9d-JcRsg7O4KhLQ'); /* Replace with your image URL */
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-position: center; /* Centers the image */
+        background-attachment: fixed; /* Keeps the background fixed while scrolling */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        color: #fff; /* Ensures text is
+        }
+        label{
+        font-weight:bold;
+        font-size:300px;
+        padding:50px;
+        }
+        
+    </style>
+</head>
+<body>
+<div align="center">
+    <h1>Create New Car</h1>
+    <br />
+     <div class="col-sm-4">
+    <form action="#" th:action="@{/save}" th:object="${car}" method="post">
+
+      <div alight="left">
+            <tr>
+                <label class="form-label" >Car Id</label>
+                <td>
+                    <input type="hidden" th:field="*{id}" />
+                    <input type="number" th:field="*{id}" class="form-control" placeholder=" id" />
+                </td>
+            </tr>
+         </div>   
+            
+         <div alight="left">
+            <tr>
+                <label class="form-label" >Car Name</label>
+                <td>
+                    <input type="hidden" th:field="*{name}" />
+                    <input type="text" th:field="*{name}" class="form-control" placeholder=" name" />
+                </td>
+            </tr>
+         </div>   
+            
+              <div alight="left">
+          
+            <tr>
+                 <label class="form-label" >Model</label>
+                <td><input type="text" th:field="*{model}" class="form-control" placeholder="model" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                 <label class="form-label" >car_year</label>
+                <td><input type="text" th:field="*{year}" class="form-control" placeholder="year" /></td>
+            </tr>
+            </div> 
+            
+            <div alight="left">
+                 <tr>
+                 <label class="form-label" >Price</label>
+                <td><input type="number" th:field="*{price}" class="form-control" placeholder="price" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                 <label class="form-label" >color</label>
+                <td><input type="text" th:field="*{color}" class="form-control" placeholder="color" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                 <label class="form-label" >fuelType</label>
+                <td><input type="text" th:field="*{fuelType}" class="form-control" placeholder="fuelType" /></td>
+            </tr>
+            </div> 
+            <br>
+            <tr>
+            <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

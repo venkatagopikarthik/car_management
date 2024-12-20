@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/1600x900/?cars');
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        table {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Search Results</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Car ID</th>
+                    <th>Car Name</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                    <th>Fuel Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${car != null}">
+                    <td th:text="${car.id}">Car ID</td>
+                    <td th:text="${car.name}">Car Name</td>
+                    <td th:text="${car.model}">Model</td>
+                    <td th:text="${car.year}">Year</td>
+                    <td th:text="${car.price}">Price</td>
+                    <td th:text="${car.color}">Color</td>
+                    <td th:text="${car.fuelType}">Fuel Type</td>
+                </tr>
+                <tr th:if="${car == null}">
+                    <td colspan="7" class="text-center">No car found with the given criteria.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="/" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
